@@ -2,18 +2,25 @@ extends layout
 
 block content
   h1= title
-  p Welcome to the #{title} page.
   br
-  -
-    let results = [
-      { brandName: "Apple iPhone", price: 999.99, description: "The Apple iPhone, running on iOS, is a premium smartphone known for its sleek design and top-notch performance." },
-      { brandName: "Samsung Galaxy", price: 799.99, description: "The Samsung Galaxy, powered by Android, is a feature-rich smartphone with a high-quality camera and vibrant display." },
-      { brandName: "Dell XPS Laptop", price: 1199.99, description: "The Dell XPS laptop, running on Windows, is a high-performance laptop suitable for both work and entertainment, with a stunning InfinityEdge display." }
-    ]
-  div.container-fluid
+  p Welocme to Search Results Page
+  - let result = [{ name: "Apple iPhone", price: 999.99, description: "The Apple iPhone is known for its sleek design."},{ name: "Samsung Galaxy", price: 799.99, description: "The Samsung Galaxy is a feature-rich smartphone."},{ name: "Dell Laptop", price: 1199.99, description: "The Dell Laptop is high-performance."}]   
+   div.container-fluid 
     div.row
-      each item in results
-        div.col-sm-2
-          h4 Brand: #{item.brandName}
-          p Price: $#{item.price}
-          p Description: #{item.description}
+     each brand,index in result
+      div.col-sm-2(onclick=`buy(${index})`) #{brand.name}
+      div.col-sm-2(onclick=`buy(${index})`) #{brand.price}
+      div.col-sm-2(onclick=`buy(${index})`) #{brand.description}
+      br
+      hr
+
+  script. 
+       function buy(index)
+       {
+        alert(`you purchased Item: ${index+1}`)
+       }
+
+
+    
+
+  
