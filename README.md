@@ -1,7 +1,9 @@
 # f23wb82shaik
 
-## Happy Hallowen weekend
-### 
+
+## Accessing the Deployed Server
+
+[Visit My Render Server](https://f23wb82shaik.onrender.com/)
 
 ### Class: Brands
 The "Brands" class represents items with attributes determined by the letter "B".
