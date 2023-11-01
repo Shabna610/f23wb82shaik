@@ -1,7 +1,24 @@
 extends layout
 block content
   h1= title
-  p Welcome to my web application using Pug templates.
-  
+  p Welcome to the #{title} page.
+  br
+  br
+  -
+    let results = [
+      { brandName: "Apple iPhone", price: 999.99, description: "The Apple iPhone, running on iOS, is a premium smartphone known for its sleek design and top-notch performance." },
+      { brandName: "Samsung Galaxy", price: 799.99, description: "The Samsung Galaxy, powered by Android, is a feature-rich smartphone with a high-quality camera and vibrant display." },
+      { brandName: "Dell XPS Laptop", price: 1,199.99, description: "The Dell XPS laptop, running on Windows, is a high-performance laptop suitable for both work and entertainment, with a stunning InfinityEdge display." }
+    ]
+  div.container-fluid
+    div.row
+      each item, index in results
+        div.col-sm-2(onclick=buy(${index}))
+          h4 Brand: #{item.productName}
+          p Price: $#{item.price}
+          p Description: #{item.description}
 
-
+  script.
+    function buy(index) {
+      alert(You purchased item ${index}.);
+    }
