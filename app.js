@@ -43,8 +43,6 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-app.get('/board', (req, res) => {
-  res.render('board', { title: 'Board', query: req.query });
-});
+
 
 module.exports = app;
