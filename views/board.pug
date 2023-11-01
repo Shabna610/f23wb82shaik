@@ -16,14 +16,16 @@ block content
     p cols are out of range
   else
    table#outer
-  - for (let i = 0; i < rows; i++) 
-    tr#middle
-      - for (let j = 0; j < cols; j++) 
-        - let cellValue = 0
-        if (i == j)
-          - cellValue = 1
-        else if (i == j + 1)
-          - cellValue = 2
-        else if (i == j - 1)
-          - cellValue = i
-        td(style=`width: ${100 / cols}%;`) #{cellValue}
+     - for(let i=0; i<rows; i++){
+        tr#middle
+         - for(let j=0; j<cols; j++){
+            if(i==j)
+                td 1
+            else if ((i == j + 1))
+                td 2
+            else if (i === j - 1)
+                td #{i}
+            else 
+                td 0
+         -}
+     -}
